@@ -23,6 +23,7 @@
 		9756FA141F97B9CF00D407C1 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756FA131F97B9CF00D407C1 /* Endpoint.swift */; };
 		9756FA191F97DAF000D407C1 /* TheMovieDBResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756FA181F97DAF000D407C1 /* TheMovieDBResources.swift */; };
 		9756FA1B1F97F3D200D407C1 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756FA1A1F97F3D200D407C1 /* APIKey.swift */; };
+		97BFE8FC1FA8123400AE0CA9 /* ArtistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BFE8FB1FA8123400AE0CA9 /* ArtistTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		9756FA131F97B9CF00D407C1 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		9756FA181F97DAF000D407C1 /* TheMovieDBResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheMovieDBResources.swift; sourceTree = "<group>"; };
 		9756FA1A1F97F3D200D407C1 /* APIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		97BFE8FB1FA8123400AE0CA9 /* ArtistTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		9756F9D41F96769800D407C1 /* MovieNight */ = {
 			isa = PBXGroup;
 			children = (
+				97BFE8FD1FAA04A000AE0CA9 /* Error */,
 				9756FA031F96777400D407C1 /* Networking */,
 				9756FA041F96777E00D407C1 /* Models */,
 				9756FA051F96778A00D407C1 /* Views */,
@@ -150,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				9756FA0D1F96788400D407C1 /* JSONDownloader.swift */,
-				9756FA0F1F96789300D407C1 /* MovieNightError.swift */,
 				9756FA111F967B0D00D407C1 /* MovieNightAPIClient.swift */,
 			);
 			name = Networking;
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				9756F9D71F96769800D407C1 /* ViewController.swift */,
+				97BFE8FB1FA8123400AE0CA9 /* ArtistTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +193,14 @@
 				9756FA1A1F97F3D200D407C1 /* APIKey.swift */,
 			);
 			name = Endpoint;
+			sourceTree = "<group>";
+		};
+		97BFE8FD1FAA04A000AE0CA9 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				9756FA0F1F96789300D407C1 /* MovieNightError.swift */,
+			);
+			name = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 				9756F9D61F96769800D407C1 /* AppDelegate.swift in Sources */,
 				9756FA1B1F97F3D200D407C1 /* APIKey.swift in Sources */,
 				9756FA191F97DAF000D407C1 /* TheMovieDBResources.swift in Sources */,
+				97BFE8FC1FA8123400AE0CA9 /* ArtistTableViewController.swift in Sources */,
 				9756FA0C1F9677FC00D407C1 /* Company.swift in Sources */,
 				9756FA0A1F9677E500D407C1 /* Genre.swift in Sources */,
 				9756FA121F967B0D00D407C1 /* MovieNightAPIClient.swift in Sources */,
@@ -590,6 +602,7 @@
 				9756F9FC1F96769800D407C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9756F9FD1F96769800D407C1 /* Build configuration list for PBXNativeTarget "MovieNightTests" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +611,7 @@
 				9756F9FF1F96769800D407C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9756FA001F96769800D407C1 /* Build configuration list for PBXNativeTarget "MovieNightUITests" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +620,7 @@
 				9756FA021F96769800D407C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

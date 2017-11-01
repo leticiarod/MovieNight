@@ -44,10 +44,10 @@ extension TheMovieDB: Endpoint {
     
     var path: String {
         switch self {
-        case .discover: return "3/discover"
-        case .person: return "3/person"
+        case .discover: return "/3/discover"
+        case .person(let resource): return "/3/person/\(resource.description)"
         case .genre(let resource): return "/3/genre/\(resource.description)"
-        case .search: return "3/search"
+        case .search: return "/3/search"
         }
     }
     
@@ -77,10 +77,10 @@ extension TheMovieDB: Endpoint {
             
             return result
             
-        case .person(let resource):
+        case .person:
             
             // Adding the resource to the base component of the URL
-            let _ = URL(string: resource.description, relativeTo: URL(string: base)!)!
+            //let _ = URL(string: resource.description, relativeTo: URL(string: base)!)!
             
             var result = [URLQueryItem]()
             
