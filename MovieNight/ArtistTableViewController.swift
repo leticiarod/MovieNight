@@ -14,16 +14,16 @@ class ArtistTableViewController: UITableViewController {
     
     let group = DispatchGroup()
     
-    var genreArray = [Genre]()
+    var artistsArray = [People]()
     
     var selectedIndexPathArray = [IndexPath]()
     
     
-    @IBOutlet var genreTableView: UITableView!
+    @IBOutlet var artistTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        genreTableView.allowsMultipleSelection = true
+        self.tableView.allowsMultipleSelection = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,66 +38,54 @@ class ArtistTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return genreArray.count
+        return artistsArray.count
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("estoy en selct")
         let cell = tableView.cellForRow(at: indexPath)
-        //selectedIndexPathArray.append(indexPath)
         cell?.accessoryType = .checkmark
         
-   //self.categoryArray[indexPath.row].isSelected = true
-      //  genreTableView.reloadRows(at: [indexPath], with: .none)
-        genreTableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
 
-    //    tableView.reloadData()
     }
+
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         print("estoy en didDeselectRowAt")
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .none
-       // tableView.reloadData()
-    }
-    
+       }
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = genreArray[indexPath.row].name
+        cell.textLabel?.text = artistsArray[indexPath.row].name
         
-   /*     cell.accessoryType = .none
-        for sip in selectedIndexPathArray {
-            if indexPath == sip {
-                cell.accessoryType = .checkmark
-            }
-        }
-       */
         return cell
     }
     
-    func getGenres () {
+    func getArtists () {
         group.enter()
-        movieClient.getGenres() { results, error in
+        movieClient.getArtists() { results, error in
             if let error = error  {
                 print("error \(error)")
-                
             }
             
             for genre in results {
-                self.genreArray.append(genre)
+                self.artistsArray.append(genre)
             }
             self.group.leave()
         }
         
         group.notify(queue: .main) {
             print("Finalice ")
-            self.genreTableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getGenres()
+        getArtists()
     }
 
     
@@ -113,8 +101,16 @@ class ArtistTableViewController: UITableViewController {
     
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("estoy en el segue !!")
+        
+        if segue.identifier == "showGenres" {
+            print("estoy en el segue if !!")
+        }
+        
     }
 
 }
