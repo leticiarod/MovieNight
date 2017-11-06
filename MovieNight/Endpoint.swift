@@ -34,7 +34,7 @@ enum TheMovieDB {
     case discover(resource: DiscoverResources, artistArray: [String], genreArray: [String], companyArray: [String])
     case person(resource: PersonResources)
     case genre(resource: GenreResources)
-    case search(resource: SearchResources)
+    case search(resource: SearchResources, text: String?)
 }
 
 extension TheMovieDB: Endpoint {
@@ -47,7 +47,7 @@ extension TheMovieDB: Endpoint {
         case .discover: return "/3/discover"
         case .person(let resource): return "/3/person/\(resource.description)"
         case .genre(let resource): return "/3/genre/\(resource.description)"
-        case .search: return "/3/search"
+        case .search(let resource, let _): return "/3/search/\(resource.description)"
         }
     }
     
@@ -91,10 +91,10 @@ extension TheMovieDB: Endpoint {
             
             return result
             
-        case .genre(let resource):
+        case .genre:
             print("pase por aca ")
             // Adding the resource to the base component of the URL
-            print("resource.description \(resource.description)")
+           // print("resource.description \(resource.description)")
             //let nuevaURL = URL(string: resource.description, relativeTo: URL(string: base)!)!
             
           //  base.append(resource.description)
@@ -112,15 +112,20 @@ extension TheMovieDB: Endpoint {
             
             return result
             
-        case .search(let resource):
+        case .search(let resource, let text):
             var result = [URLQueryItem]()
             
             // Adding the resource to the base component of the URL
-            let _ = URL(string: resource.description, relativeTo: URL(string: base))
+          //  let _ = URL(string: resource.description, relativeTo: URL(string: base))
             
             // Adds the API key to the url as a query item
             let discoverAPIKeyItem = URLQueryItem(name: "api_key", value: APIKey.apiKey)
             result.append(discoverAPIKeyItem)
+            
+            
+            
+            let queryItem = URLQueryItem(name: "query", value: text)
+            result.append(queryItem)
             
             return result
         }

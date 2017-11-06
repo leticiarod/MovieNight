@@ -60,4 +60,31 @@ class MovieNightAPIClient {
         }
         task.resume()
     }
+    
+    func getCompanies(with text: String?, completion: @escaping ([Company], MovieNightError?) -> Void){
+        let endpoint = TheMovieDB.search(resource: .companies, text: text)
+        print("endpoint \(endpoint.request)")
+        
+        let task = downloader.jsonTask(with: endpoint.request) { json, error in
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    print("error")
+                    completion([], error)
+                    return
+                }
+                guard let results = json["results"] as? [[String: Any]] else {
+                    print("error json data ")
+                    completion([], .jsonParsingFailure(message: "JSON data does not contain results"))
+                    return
+                }
+                
+                print("JSONNNN \(json)")
+                
+                // used flat map because we need transform the contents of an array of arrays, into a linear array
+                let companies = results.flatMap { Company(json: $0 )}
+                completion(companies, nil)
+            }
+        }
+        task.resume()
+    }
 }

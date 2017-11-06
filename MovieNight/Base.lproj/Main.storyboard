@@ -185,10 +185,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qnd-3g-Y4I">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qSI-v4-Mfu">
                                 <rect key="frame" x="16" y="64" width="343" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -212,15 +208,11 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="NzD-wj-ZFa" secondAttribute="trailing" id="0EN-Lp-u51"/>
                             <constraint firstItem="NzD-wj-ZFa" firstAttribute="leading" secondItem="OT0-p1-8ys" secondAttribute="leadingMargin" id="2HC-lu-cbl"/>
-                            <constraint firstItem="qnd-3g-Y4I" firstAttribute="top" secondItem="Lqu-Ww-Eb4" secondAttribute="bottom" id="APd-yC-I5i"/>
-                            <constraint firstAttribute="trailing" secondItem="qnd-3g-Y4I" secondAttribute="trailing" id="M1b-7A-8rG"/>
                             <constraint firstItem="qSI-v4-Mfu" firstAttribute="top" secondItem="Lqu-Ww-Eb4" secondAttribute="bottom" id="Zzf-p2-5IQ"/>
                             <constraint firstItem="NzD-wj-ZFa" firstAttribute="top" secondItem="qSI-v4-Mfu" secondAttribute="bottom" constant="-1" id="ciJ-6D-bgM"/>
-                            <constraint firstItem="qSI-v4-Mfu" firstAttribute="top" secondItem="qnd-3g-Y4I" secondAttribute="bottom" constant="-44" id="fov-rs-9Qc"/>
                             <constraint firstItem="qSI-v4-Mfu" firstAttribute="leading" secondItem="OT0-p1-8ys" secondAttribute="leadingMargin" id="kzP-JL-jsn"/>
                             <constraint firstItem="Jyk-ON-Yhe" firstAttribute="top" secondItem="NzD-wj-ZFa" secondAttribute="bottom" id="mkr-3M-lAv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qSI-v4-Mfu" secondAttribute="trailing" id="xnM-Ig-X8k"/>
-                            <constraint firstItem="qnd-3g-Y4I" firstAttribute="leading" secondItem="OT0-p1-8ys" secondAttribute="leading" id="zJ5-m2-w5a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Companies" id="GeR-oF-muV">
@@ -229,6 +221,9 @@
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="GcE-2J-EEe" eventType="touchUpInside" id="CX3-px-YOj"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="JlE-oL-jgq">

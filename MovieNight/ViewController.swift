@@ -15,14 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // prueba 
-     
-        client.getArtists() { results, error in
-                print("resultsssss \(results)")
-        }
-        
-     
     }
 
     override func didReceiveMemoryWarning() {
