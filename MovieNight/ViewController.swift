@@ -30,6 +30,8 @@ class ViewController: UIViewController {
         let tapGestureRecognizerBubbleWatcherTwo = UITapGestureRecognizer(target: self, action: #selector(bubbleWatcherTwoTapped(tapGestureRecognizer:)))
         watcherTwoBubbleImageView.addGestureRecognizer(tapGestureRecognizerBubbleWatcherTwo)
         
+        // test
+        
     }
 
     override func didReceiveMemoryWarning() {
