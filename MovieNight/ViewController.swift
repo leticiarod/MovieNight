@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         // adding tap gesture to watcher two empty bubbles image view
         let tapGestureRecognizerBubbleWatcherTwo = UITapGestureRecognizer(target: self, action: #selector(bubbleWatcherTwoTapped(tapGestureRecognizer:)))
         watcherTwoBubbleImageView.addGestureRecognizer(tapGestureRecognizerBubbleWatcherTwo)
+    
+    // merge test
         
         // test
         
